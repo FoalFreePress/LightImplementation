@@ -1,0 +1,1 @@
+An Implementation for [LightAPI](https://github.com/Qveshn/LightAPI)

@@ -1,0 +1,53 @@
+plugins {
+	id 'java'
+	id 'eclipse'
+    id 'net.minecrell.licenser' version '0.4'
+}
+
+group = 'org.sweetiebelle'
+version = '2'
+
+repositories {
+	jcenter()
+	maven {
+		name 'spigot'
+		url 'https://hub.spigotmc.org/nexus/content/groups/public/'
+	}
+	maven {
+		name 'engine-hub'
+		url 'https://maven.enginehub.org/repo/'
+	}
+}
+dependencies {
+    implementation 'org.spigotmc:spigot-api:1.16.2-R0.1-SNAPSHOT'
+	implementation 'com.sk89q.worldedit:worldedit-bukkit:7.2.0-SNAPSHOT'
+	implementation 'com.sk89q.worldedit:worldedit-core:7.2.0-SNAPSHOT'
+	implementation fileTree(dir: 'libs', include: '*.jar')
+}
+
+processResources {
+	inputs.properties version: project.version
+	from (sourceSets.main.resources.srcDirs) {
+		include 'plugin.yml'
+		expand version:project.version
+	}
+	from (sourceSets.main.resources.srcDirs) {
+		exclude 'plugin.yml'
+	}
+}
+
+license {
+    header = file("$rootDir/LICENSE.txt")
+    
+    include 'org/sweetiebelle/'
+    
+    
+    tasks {
+        main {
+            files = files("$rootDir/src/main/java")
+        }
+        test {
+            files = files("$rootDir/src/test/java")
+        }
+    }
+}

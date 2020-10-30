@@ -1,0 +1,28 @@
+name: LightImplementation
+author: SweetieBelle
+main: org.sweetiebelle.lightimplementation.LightImplementation
+depend: [LightAPI, WorldEdit]
+version: $version
+api-version: 1.16
+description: >
+            Provides an implementation for LightAPI
+commands:
+    lightcreate:
+      description: Adds light
+      usage: /lightcreate [world] x y z
+    lightdelete:
+      description: Removes light
+      usage: /lightdelete [world] x y z
+    lightcreatelevel:
+      description: Adds light
+      usage: /lightcreatelevel [world] x y z level
+    lightregion:
+      descrption: Adds or removes light from a region
+      usage: /lightregion (create|delete) level
+    lightdebug:
+      descrption: Toggles debug
+      usage: /lightdebug
+permissions:
+    light.use:
+      description: Allows usage
+      default: op
